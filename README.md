@@ -1,5 +1,4 @@
-# Sorcery of Code
-*Embark on a quest to master Python, ML, and AI!*
+# Sorcery of Code --*Embark on a quest to master Python, ML, and AI!*
 
 
 ## Overview
