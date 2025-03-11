@@ -42,6 +42,22 @@ When you submit a pull request with your solution:
 - If tests pass, you automatically receive a key to unlock the next lesson
 - The leaderboard updates with your progress
 
+### Branch Structure
+
+This repository uses a multi-branch strategy:
+
+- **`main`**: Stable, production-ready content
+- **`develop`**: Latest approved content before merging to main
+- **`module/X`**: Development branches for each module (X = module number)
+- **`fix/description`**: Branches for bug fixes and improvements
+
+**For Students:**
+- Fork the repository
+- Create your solution branch: `username/module-0/lesson-1`
+- Submit PRs to the `main` branch
+
+This structure teaches Git best practices while keeping content organized.
+
 ## Help Improve
 
 Found a bug or have ideas? Please:
