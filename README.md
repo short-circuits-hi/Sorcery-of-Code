@@ -1,30 +1,50 @@
-# Sorcery of Code --*Embark on a quest to master Python, ML, and AI!*
+# Sorcery of Code
 
-![Sorcery of Code Logo](./images/sorcery_logo.png "Sorcery of Code - Learning Journey")
+Learn Python, machine learning, and AI through hands-on coding challenges.
 
-## Overview
-Sorcery of Code is a gamified learning journey that unlocks advanced Python, machine learning, and AI backend concepts through bite-sized lessons and coding challenges. Earn mystical keys to unlock new content and track your progress with leaderboards and badges.
+![Sorcery of Code Logo](./images/sorcery_logo.png)
 
-## Curriculum
-- **Module 0: Quick Beginner Review**  
-  Refresh Python essentials with short puzzles.
-- **Module 1: Intermediate Python & Best Practices**  
-  Advance your skills in data structures, testing, and modular design.
-- **Module 2: Deep Dive into Machine Learning**  
-  Explore data preprocessing, model building, evaluation, and neural networks.
-- **Module 3: Advanced AI Backend Development**  
-  Build and deploy AI-powered REST APIs using modern tools.
-- **Module 4: Capstone Project**  
-  Integrate all your skills into a comprehensive, production-ready application.
+## About This Project
 
-## Getting Started
-1. **Fork or Clone** this repository.
-2. **Start with Module 0:** Follow the lesson instructions and complete the challenges.
-3. **Submit a Pull Request:** Once tests pass, you'll earn a key to unlock the next module.
-4. **Track Your Progress:** Check the leaderboard and collect badges as you advance.
+This project helps you learn to code through challenges that get harder as you progress!
 
-## Contributing
-Contributions are welcome! Open an issue or submit a pull request with improvements or new challenges.
+Complete each task to unlock new lessons. Track your progress with badges and leaderboards.
+
+## My Inspiration
+
+I created this project because I wanted:
+- A fun, game-based way to learn coding
+- A clear path from Python basics to advanced AI
+- To document my learning journey
+- To be more active on GitHub
+
+## What You'll Learn
+
+- **Module 0:** Python basics
+- **Module 1:** Better Python skills and best practices
+- **Module 2:** Machine learning fundamentals
+- **Module 3:** Building AI applications
+- **Module 4:** Final project to show what you've learned
+
+## How to Start
+
+1. Fork or clone this repository
+2. Start with Module 0
+3. Complete the challenges
+4. Submit your solutions as pull requests
+5. Pass the tests to unlock next lessons
+
+## Help Improve
+
+Found a bug or have ideas? Please:
+- Open an issue
+- Submit a fix
+- Share your feedback
 
 ## License
+
 [MIT License](LICENSE)
+
+---
+
+*Learning step by step builds lasting skills.*
