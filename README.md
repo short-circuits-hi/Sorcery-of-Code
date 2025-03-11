@@ -32,7 +32,15 @@ I created this project because I wanted:
 2. Start with Module 0
 3. Complete the challenges
 4. Submit your solutions as pull requests
-5. Pass the tests to unlock next lessons
+
+### How Solutions Are Approved
+
+When you submit a pull request with your solution:
+- Automated tests run through GitHub Actions
+- The system checks if your code passes all test cases
+- No human review needed – it's all automated!
+- If tests pass, you automatically receive a key to unlock the next lesson
+- The leaderboard updates with your progress
 
 ## Help Improve
 
