@@ -1,0 +1,109 @@
+name: Challenge Reward System
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  workflow_dispatch:
+    inputs:
+      module:
+        description: 'Module to test (e.g., module-python)'
+        required: true
+        default: 'module-0-beginner-review'
+      lesson:
+        description: 'Lesson to test (e.g., lesson1)'
+        required: true
+        default: 'lesson1'
+
+env:
+  ENCRYPTED_BACKUP_DIR: "./encrypted_backups"
+
+jobs:
+  validate-challenge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Extract PR information
+        id: pr_info
+        run: |
+          echo "PR_TITLE=${{ github.event.pull_request.title }}" >> $GITHUB_ENV
+          echo "PR_BRANCH=${{ github.event.pull_request.head.ref }}" >> $GITHUB_ENV
+          echo "PR_USER=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
+          
+          # Try to parse module and lesson from branch name or PR title
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+          TITLE="${{ github.event.pull_request.title }}"
+          
+          if [[ "$BRANCH" =~ solution-([^/]+)/([^/]+) ]]; then
+            MODULE="${BASH_REMATCH[1]}"
+            LESSON="${BASH_REMATCH[2]}"
+            echo "MODULE=$MODULE" >> $GITHUB_ENV
+            echo "LESSON=$LESSON" >> $GITHUB_ENV
+          elif [[ "$TITLE" =~ Solution[[:space:]]+for[[:space:]]+([^/]+)/([^/]+) ]]; then
+            MODULE="${BASH_REMATCH[1]}"
+            LESSON="${BASH_REMATCH[2]}"
+            echo "MODULE=$MODULE" >> $GITHUB_ENV
+            echo "LESSON=$LESSON" >> $GITHUB_ENV
+          fi
+          
+      - name: Validate challenge solution
+        id: validate
+        run: |
+          # Use pytest to run the test file for the current module/lesson
+          # The actual implementation would depend on your test structure
+          if [ -n "$MODULE" ] && [ -n "$LESSON" ]; then
+            MODULE_DIR="${MODULE//-/_}"
+            TEST_FILE="${MODULE}/tests/test_${LESSON}.py"
+            
+            if [ -f "$TEST_FILE" ]; then
+              python -m pytest $TEST_FILE -v
+              echo "Tests passed for $MODULE/$LESSON"
+              echo "VALIDATION_SUCCESS=true" >> $GITHUB_ENV
+            else
+              echo "No test file found for $MODULE/$LESSON"
+              echo "VALIDATION_SUCCESS=false" >> $GITHUB_ENV
+            fi
+          else
+            echo "Could not determine module and lesson from PR info"
+            echo "VALIDATION_SUCCESS=false" >> $GITHUB_ENV
+          fi
+          
+      - name: Award key if solution is correct
+        if: env.VALIDATION_SUCCESS == 'true'
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          python .github/scripts/award_key.py
+          
+      - name: Unlock next lesson
+        if: env.VALIDATION_SUCCESS == 'true'
+        run: |
+          python .github/scripts/unlock_lesson.py
+          
+      - name: Create PR for unlocked lesson
+        if: env.VALIDATION_SUCCESS == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Unlock next lesson for ${{ env.PR_USER }}"
+          title: "Unlock next lesson for ${{ env.PR_USER }}"
+          body: |
+            This PR unlocks the next lesson for @${{ env.PR_USER }} based on their successful completion of ${{ env.MODULE }}/${{ env.LESSON }}.
+            
+            Congrats! 🎉
+          branch: unlock-${{ env.PR_USER }}-next-lesson
+          base: main

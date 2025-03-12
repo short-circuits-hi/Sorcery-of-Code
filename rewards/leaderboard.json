@@ -1,0 +1,26 @@
+{
+  "users": {},
+  "latest_updates": [],
+  "badges": {
+    "python_master": {
+      "name": "Python Master",
+      "description": "Completed all Python module challenges",
+      "image": "badges/python_master.png"
+    },
+    "ml_wizard": {
+      "name": "ML Wizard",
+      "description": "Completed all ML module challenges",
+      "image": "badges/ml_wizard.png"
+    },
+    "ai_backend_architect": {
+      "name": "AI Backend Architect",
+      "description": "Completed all AI Backend module challenges",
+      "image": "badges/ai_backend_architect.png"
+    },
+    "sorcery_grandmaster": {
+      "name": "Sorcery Grandmaster",
+      "description": "Completed all modules and the capstone project",
+      "image": "badges/sorcery_grandmaster.png"
+    }
+  }
+}
