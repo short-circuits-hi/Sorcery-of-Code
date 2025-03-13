@@ -1,26 +1,88 @@
 {
-  "users": {},
+  "users": [
+    {
+      "username": "MagicCoder42",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "title": "Archmage",
+      "completedChallenges": ["python_basics", "loops_master", "string_manipulation", "data_structures", "error_handling", "file_io", "object_oriented"],
+      "badges": ["python_master", "algorithm_expert", "data_wizard", "debugging_hero"]
+    },
+    {
+      "username": "CodeSorcerer",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+      "title": "Enchanter",
+      "completedChallenges": ["python_basics", "loops_master", "string_manipulation", "data_structures", "algorithms_intro"],
+      "badges": ["python_master", "logic_guru"]
+    },
+    {
+      "username": "ByteWizard",
+      "avatar": "https://randomuser.me/api/portraits/men/22.jpg",
+      "title": "Apprentice",
+      "completedChallenges": ["python_basics", "loops_master", "string_manipulation"],
+      "badges": ["python_master"]
+    },
+    {
+      "username": "AlgorithmQueen",
+      "avatar": "https://randomuser.me/api/portraits/women/28.jpg",
+      "title": "Sorceress",
+      "completedChallenges": ["python_basics", "loops_master", "string_manipulation", "data_structures", "algorithms_intro", "recursion_magic"],
+      "badges": ["python_master", "algorithm_expert", "recursion_wizard"]
+    },
+    {
+      "username": "PythonMage",
+      "avatar": "https://randomuser.me/api/portraits/men/45.jpg",
+      "title": "Novice",
+      "completedChallenges": ["python_basics", "loops_master"],
+      "badges": ["python_novice"]
+    },
+    {
+      "username": "DataDruid",
+      "avatar": "https://randomuser.me/api/portraits/women/36.jpg",
+      "title": "Data Sage",
+      "completedChallenges": ["python_basics", "data_structures", "data_analysis", "visualization_magic", "machine_learning_intro"],
+      "badges": ["data_wizard", "visualization_expert"]
+    },
+    {
+      "username": "BugSlayer",
+      "avatar": "https://randomuser.me/api/portraits/men/67.jpg",
+      "title": "Debugger",
+      "completedChallenges": ["python_basics", "loops_master", "error_handling", "debugging_challenges"],
+      "badges": ["debugging_hero"]
+    },
+    {
+      "username": "AIApprentice",
+      "avatar": "https://randomuser.me/api/portraits/women/60.jpg",
+      "title": "ML Wizard",
+      "completedChallenges": ["python_basics", "data_structures", "machine_learning_intro", "neural_networks", "deep_learning"],
+      "badges": ["ai_adept", "neural_master"]
+    }
+  ],
   "latest_updates": [],
   "badges": {
-    "python_master": {
+    "module-python_master": {
       "name": "Python Master",
       "description": "Completed all Python module challenges",
-      "image": "badges/python_master.png"
+      "image": "../resources/images/badges/module-python_master.png"
     },
-    "ml_wizard": {
+    "module-ml_master": {
       "name": "ML Wizard",
       "description": "Completed all ML module challenges",
-      "image": "badges/ml_wizard.png"
+      "image": "../resources/images/badges/module-ml_master.png"
     },
-    "ai_backend_architect": {
+    "module-ai-backend_master": {
       "name": "AI Backend Architect",
       "description": "Completed all AI Backend module challenges",
-      "image": "badges/ai_backend_architect.png"
+      "image": "../resources/images/badges/module-ai-backend_master.png"
+    },
+    "module-0-beginner-review_master": {
+      "name": "Python Fundamentals",
+      "description": "Completed all beginner review challenges",
+      "image": "../resources/images/badges/module-0-beginner-review_master.png"
     },
     "sorcery_grandmaster": {
       "name": "Sorcery Grandmaster",
       "description": "Completed all modules and the capstone project",
-      "image": "badges/sorcery_grandmaster.png"
+      "image": "../resources/images/badges/sorcery_grandmaster.png"
     }
   }
 }

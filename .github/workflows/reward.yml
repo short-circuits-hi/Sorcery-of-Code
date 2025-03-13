@@ -20,6 +20,9 @@ env:
 jobs:
   validate-challenge:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -34,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest
+          pip install pytest PyGithub
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Extract PR information
@@ -84,6 +87,8 @@ jobs:
           
       - name: Award key if solution is correct
         if: env.VALIDATION_SUCCESS == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
@@ -91,6 +96,8 @@ jobs:
           
       - name: Unlock next lesson
         if: env.VALIDATION_SUCCESS == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python .github/scripts/unlock_lesson.py
           
